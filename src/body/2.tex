@@ -1,0 +1,40 @@
+\section{基础概念}
+
+基础概念基础概念基础概念基础概念\footnote{在正文里添加脚注}
+
+\subsection{插入公式}
+
+公式\cite{knuth:1984}
+\begin{align*}
+  &E=mc^2\\
+  &E=mc^2\\
+  &E=mc^2\\
+  &\cdots
+\end{align*}
+
+\subsection{表格}
+
+表格
+\begin{table}[h]
+  \renewcommand\arraystretch{2} % 如果不加这一行表格行距会太小
+  \centering
+  \caption{示例表格}
+  \begin{tabular}{ccc}
+    \hline
+    \textbf{第一栏}&\textbf{第二栏}&\textbf{第三栏}\\
+    \hline
+    A & $1$ & $2$ \\
+    \hline
+    B\tablefootnote{在表格中添加脚注} & $3$ & $4$ \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\subsection{图片}
+
+图片
+\begin{figure}[h]
+  \centering
+  \caption{示例图片}
+  \includegraphics[width=0.5\linewidth]{pic/cover.jpg}
+\end{figure}
