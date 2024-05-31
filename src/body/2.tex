@@ -1,21 +1,36 @@
 \section{基础概念}
 
-基础概念基础概念基础概念基础概念\footnote{在正文里添加脚注}
+基础概念基础概念基础概念基础概念\cite{knuth:1984}
 
 \subsection{插入公式}
 
-公式\cite{knuth:1984}
-\begin{align*}
-  & E=mc^2 \\
-  & E=mc^2 \\
-  & E=mc^2 \\
-  & \cdots \\
-\end{align*}
+行内公式 $n=pq$，无编号单号公式
+\begin{equation*}
+    \phi(n)=(p-1)(q-1),
+\end{equation*}
+有编号单行公式
+\begin{equation}
+    de\equiv 1\pmod{\phi(n)}
+\end{equation}
+有编号多行公式
+\begin{align}
+  c&=m^e\mod{n},\\
+  m&=c^d\mod{n}.
+\end{align}
 
-\subsection{表格}
+\subsection{插入图片}
 
-表格
-\begin{table}[h]
+图片
+\begin{figure}[H]
+  \centering
+  \caption{示例图片}
+  \includegraphics[width=0.2\linewidth]{pic/cover.jpg}
+\end{figure}
+
+\subsection{插入表格}
+
+表格\footnote{在正文里添加脚注}
+\begin{table}[H]
   \renewcommand\arraystretch{2} % 如果不加这一行表格行距会太小
   \centering
   \caption{示例表格}
@@ -29,12 +44,3 @@
     \hline
   \end{tabular}
 \end{table}
-
-\subsection{图片}
-
-图片
-\begin{figure}[h]
-  \centering
-  \caption{示例图片}
-  \includegraphics[width=0.5\linewidth]{pic/cover.jpg}
-\end{figure}

@@ -48,7 +48,7 @@
 % 参考文献格式
 \bibliographystyle{gbt7714-numerical}
 \setlength{\bibsep}{0em}
-\renewcommand*{\bibfont}{\zihao{5}\songti}
+\renewcommand*{\bibfont}{\songti\zihao{5}}
 \setmainfont{Times New Roman}
 
 \ctexset{
@@ -68,34 +68,37 @@
     afterskip=0.5\baselineskip,
   },
   autoindent=true,
-  contentsname={\hfill\textbf{\heiti\zihao{-2}目\qquad 录}\hfill},
-  bibname={\hfill\heiti\zihao{-2}{参考文献}\hfill},
-  appendixname={\hfill\textbf{\heiti\zihao{-2}附\qquad 录}\hfill},
+  contentsname={\hfill{\heiti\zihao{-2}\bfseries 目\qquad 录}\hfill},
+  bibname={\hfill{\heiti\zihao{-2}\bfseries 参考文献}\hfill},
+  appendixname={\hfill{\heiti\zihao{-2}\bfseries 附\qquad 录}\hfill},
 }
 
-% 设置片和表格编号的格式
+% 设置图片和表格编号的格式
 \renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
 \renewcommand{\thetable}{\arabic{section}-\arabic{table}}
 \DeclareCaptionLabelSeparator{quad}{\quad}
-\captionsetup{labelsep=quad}
+\DeclareCaptionFont{labelfont}{\songti\zihao{5}\bfseries}
+\captionsetup{labelsep=quad,font=labelfont}
+
+% 设置公式编号样式
+% 如果想要全文统一编序，而非每章单独编序，则注释掉下面一行
+\renewcommand{\theequation}{\arabic{section}-\arabic{equation}}
 
 \begin{document}
 
 \pagestyle{empty}
 
-\newpage\input{"cover/cover"}
+\clearpage\input{"cover/cover.tex"}
 
-\begin{sloppypar}
-  \newpage\input{"abstractC/abstractC"}
-  \newpage\input{"abstractE/abstractE"}
-\end{sloppypar}
+\clearpage\input{"abstractC/abstractC.tex"}
+\clearpage\input{"abstractE/abstractE.tex"}
 
 \clearpage
 \setcounter{page}{1}
 \pagenumbering{Roman}
 \pagestyle{plain}
 
-\newpage
+\clearpage
 \tableofcontents
 
 \clearpage
@@ -103,24 +106,22 @@
 \pagenumbering{arabic}
 \pagestyle{body}
 
-\begin{sloppypar}
-  \newpage\input{"body/1.tex"}
-  \newpage\input{"body/2.tex"}
-  % \newpage\input{"body/3.tex"}
-  % \newpage\input{"body/4.tex"}
-  % \newpage\input{"body/5.tex"}
-\end{sloppypar}
+\clearpage\input{"body/1.tex"}
+\clearpage\input{"body/2.tex"}
+% \clearpage\input{"body/3.tex"}
+% \clearpage\input{"body/4.tex"}
+% ...
 
-\newpage
+\clearpage
+\phantomsection
 \addcontentsline{toc}{section}{参考文献}
 \nocite{*}
 \begin{spacing}{1}
   \bibliography{ref}
 \end{spacing}
 
-\begin{sloppypar}
-  \newpage\input{"acknowledge/acknowledge"}
-  \newpage\input{"appendix/appendix"}
-\end{sloppypar}
+\clearpage\input{"acknowledge/acknowledge.tex"}
+
+\clearpage\input{"appendix/appendix.tex"}
 
 \end{document}
